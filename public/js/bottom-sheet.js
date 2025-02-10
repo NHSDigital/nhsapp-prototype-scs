@@ -1,16 +1,14 @@
-"use strict";
+const $ = document.querySelector.bind(document);
+const openSheetButton = $("#open-sheet");
+const sheet = $("#sheet");
+const sheetContents = sheet.querySelector(".app-bottom-sheet__contents");
+const draggableArea = sheet.querySelector(".app-bottom-sheet__draggable-area");
+const html = document.querySelector("html");
+let sheetHeight; // in vh
 
-var $ = document.querySelector.bind(document);
-var openSheetButton = $("#open-sheet");
-var sheet = $("#sheet");
-var sheetContents = sheet.querySelector(".app-bottom-sheet__contents");
-var draggableArea = sheet.querySelector(".app-bottom-sheet__draggable-area");
-var html = document.querySelector("html");
-var sheetHeight; // in vh
-
-var setSheetHeight = function setSheetHeight(value) {
+const setSheetHeight = value => {
   sheetHeight = Math.max(0, Math.min(100, value));
-  sheetContents.style.height = "".concat(sheetHeight, "vh");
+  sheetContents.style.height = `${sheetHeight}vh`;
   if (sheetHeight === 100) {
     sheetContents.classList.add("fullscreen");
   } else {
@@ -20,18 +18,18 @@ var setSheetHeight = function setSheetHeight(value) {
     html.classList.add("app-bottom-sheet__body");
   }
 };
-var setIsSheetShown = function setIsSheetShown(isShown) {
+const setIsSheetShown = isShown => {
   sheet.setAttribute("aria-hidden", String(!isShown));
 };
 
 // Open the sheet when clicking the 'open sheet' button
-openSheetButton.addEventListener("click", function () {
+openSheetButton.addEventListener("click", () => {
   setSheetHeight(Math.min(50, 720 / window.innerHeight * 100));
   setIsSheetShown(true);
 });
 
 // Hide the sheet when clicking the 'close' button
-sheet.querySelector(".app-bottom-sheet__close-sheet").addEventListener("click", function () {
+sheet.querySelector(".app-bottom-sheet__close-sheet").addEventListener("click", () => {
   setIsSheetShown(false);
   // Remove overflow hidden to html and body tags
   document.body.classList.remove("app-bottom-sheet__body");
@@ -39,42 +37,38 @@ sheet.querySelector(".app-bottom-sheet__close-sheet").addEventListener("click", 
 });
 
 // Hide the sheet when clicking the background
-sheet.querySelector(".app-bottom-sheet__overlay").addEventListener("click", function () {
+sheet.querySelector(".app-bottom-sheet__overlay").addEventListener("click", () => {
   setIsSheetShown(false);
   // Remove overflow hidden to html and body tags
   document.body.classList.remove("app-bottom-sheet__body");
   html.classList.remove("app-bottom-sheet__body");
 });
-var isFocused = function isFocused(element) {
-  return document.activeElement === element;
-};
+const isFocused = element => document.activeElement === element;
 
 // Hide the sheet when pressing Escape if the target element
 // is not an input field
-window.addEventListener("keyup", function (event) {
-  var isSheetElementFocused = sheet.contains(event.target) && isFocused(event.target);
+window.addEventListener("keyup", event => {
+  const isSheetElementFocused = sheet.contains(event.target) && isFocused(event.target);
   if (event.key === "Escape" && !isSheetElementFocused) {
     setIsSheetShown(false);
   }
 });
-var touchPosition = function touchPosition(event) {
-  return event.touches ? event.touches[0] : event;
-};
-var dragPosition;
-var onDragStart = function onDragStart(event) {
+const touchPosition = event => event.touches ? event.touches[0] : event;
+let dragPosition;
+const onDragStart = event => {
   dragPosition = touchPosition(event).pageY;
   sheetContents.classList.add("not-selectable");
   draggableArea.style.cursor = document.body.style.cursor = "grabbing";
 };
-var onDragMove = function onDragMove(event) {
+const onDragMove = event => {
   if (dragPosition === undefined) return;
-  var y = touchPosition(event).pageY;
-  var deltaY = dragPosition - y;
-  var deltaHeight = deltaY / window.innerHeight * 100;
+  const y = touchPosition(event).pageY;
+  const deltaY = dragPosition - y;
+  const deltaHeight = deltaY / window.innerHeight * 100;
   setSheetHeight(sheetHeight + deltaHeight);
   dragPosition = y;
 };
-var onDragEnd = function onDragEnd() {
+const onDragEnd = () => {
   dragPosition = undefined;
   sheetContents.classList.remove("not-selectable");
   draggableArea.style.cursor = document.body.style.cursor = "";

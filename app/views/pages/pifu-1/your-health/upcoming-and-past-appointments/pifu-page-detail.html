@@ -1,0 +1,44 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-page" %}
+
+{% set pageHeading = "Orthopaedic follow-up plan" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+       <!-- note: need to add link -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <h4>You can book until Friday 21 June 2026</h4>
+      <p>The Willows, Croydon University Hospital</p>
+
+      <hr class="nhsuk-section-break--l">
+
+    <!-- REQUEST A FOLLOW UP -->
+      {{ nhsappSectionHeading({
+        headingText: "Request a follow up",
+        subheadingText: "The Willows, Croydon University Hospital"
+      })}}
+
+    <button
+     class="nhsuk-button nhsapp-button--secondary nhsapp-button"
+     data-module="nhsuk-button"
+     type="submit"
+    >
+      Request follow up appointment
+    </button>
+    </div>
+  </div>
+
+  {% endblock %}
