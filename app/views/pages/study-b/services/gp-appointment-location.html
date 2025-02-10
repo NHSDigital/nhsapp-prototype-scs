@@ -1,0 +1,76 @@
+{% extends 'layout-app-study-b.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Select a location" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/study-b/services/gp-appointment-clinician" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+        {% from 'details/macro.njk' import details %}
+
+        {{ details({
+          classes: "nhsuk-expander",
+          text: "Booking guidance: help from your GP",
+          HTML: "
+          <p>Blood tests are INVITE ONLY and should be booked with Nurse Donna at the Southbank Practice. Also book with Donna for warfarin clinic and b12 injections. Please remember to cancel your appointment if it is no longer needed. Thanks</p>"
+        }) }}
+
+        {{ checkboxes({
+          idPrefix: "gp-appointment-location",
+          name: "gp-appointment-location",
+          fieldset: {
+            legend: {
+            }
+          },
+          hint: {
+            text: "Choose all that apply"
+          },
+          "items": [
+            {
+              value: "York Road Practice",
+              text: "York Road Practice",
+              checked: checked("gp-appointment-location", "York Road Practice"),
+              exclusiveGroup: "location-list"
+            },
+            {
+              value: "Southbank Practice",
+              text: "Southbank Practice",
+              checked: checked("gp-appointment-location", "Southbank Practice"),
+              exclusiveGroup: "location-list"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "No preference",
+              checked: checked("gp-appointment-location", "none"),
+              exclusive: true,
+              exclusiveGroup: "location-list"
+            }
+
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

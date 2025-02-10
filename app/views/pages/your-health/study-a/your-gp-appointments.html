@@ -1,0 +1,78 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/your-health/study-a/upcoming-and-past-appointments-p9" %}
+
+{% set pageHeading = "Your GP appointments" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/services/study-a/gp-appointment-start" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+      <p>
+        For urgent medical advice, go to 
+        <a href="#" class="app-link nhsuk-link--no-visited-state">111.nhs.uk</a> 
+        or 
+        <a href="#" class="app-link nhsuk-link--no-visited-state">call 111</a>.
+      </p>
+
+      <p>
+        <a href="#" class="app-link nhsuk-link--no-visited-state">What to do if you think you might have coronavirus</a> 
+      </p>
+
+      {{ button({
+        text: "Book a GP appointment",
+        classes: "nhsapp-button"
+      }) }}
+
+            {{ nhsappSectionHeading({
+              headingText: "Upcoming appointments",
+              subheadingText: ""
+            })}}
+
+      <!-- CARDS
+      <ul class="nhsapp-cards">
+        <li class="nhsapp-card">
+          <div class="nhsapp-card__container">
+            <div class="nhsapp-card__content">
+              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="/pages/your-health/view-or-manage-appointment" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
+                Monday 20th January
+              </a>
+              <div class="nhsapp-card__below">
+                <p aria-hidden="true" class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-3">9am</p>
+                <p class="nhsuk-u-margin-bottom-3">Blood test</p>
+                <p class="nhsuk-u-margin-bottom-3">Nurse Donna</p>
+                <p class="nhsuk-u-margin-bottom-0 nhsuk-u-secondary-text-color">Southbank Practice</p>
+                <p class="nhsapp-badge-small nhsapp-badge-small--red nhsuk-body-s nhsuk-u-secondary-text-color">
+              </div>
+            </div>
+            {{ nhsappIcon('chevronRight') }}
+          </div>
+        </li>
+      </ul> -->
+
+            <hr>
+
+            {{ nhsappSectionHeading({
+              headingText: "Past appointments",
+              subheadingText: ""
+            })}}
+
+
+
+          </form>
+
+
+    </div>
+  </div>
+
+  {% endblock %}

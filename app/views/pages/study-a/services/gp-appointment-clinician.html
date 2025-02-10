@@ -1,0 +1,73 @@
+{% extends 'layout-app-study-a.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Select a clinician" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/study-a/services/gp-appointment-select-appointment-v6" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+        {{ checkboxes({
+          idPrefix: "gp-appointment-clinician",
+          name: "gp-appointment-clinician",
+          fieldset: {
+            legend: {
+            }
+          },
+          hint: {
+            text: "Choose all that apply"
+          },
+          "items": [
+            {
+              value: "Dr Max Smith",
+              text: "Dr Max Smith",
+              checked: checked("gp-appointment-clinician", "Dr Max Smith"),
+              exclusiveGroup: "clinician-list"
+            },
+            {
+              value: "Dr Louise Williams",
+              text: "Dr Louise Williams",
+              checked: checked("gp-appointment-clinician", "Dr Louise Williams"),
+              exclusiveGroup: "clinician-list"
+            },
+            {
+              value: "Nurse Donna",
+              text: "Nurse Donna",
+              checked: checked("gp-appointment-clinician", "Nurse Donna"),
+              exclusiveGroup: "clinician-list"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "I have no preference",
+              checked: checked("gp-appointment-clinician", "none"),
+              exclusive: true,
+              exclusiveGroup: "clinician-list"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}
+

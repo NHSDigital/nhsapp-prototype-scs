@@ -1,0 +1,54 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Services" %}
+
+{% set pageHeading = "Study a: Appointment cancelled" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <div class="app-confirmation">
+        <h1 class="app-confirmation__title">{{ pageHeading }}</h1>
+      </div>
+
+<h2>What you can do next</h2>
+
+{{ nhsappCardGroup({
+  stacked: true,
+  cards: [
+    {
+      title: "Upcoming and past appointments",
+      href: "/pages/your-health/study-a/upcoming-and-past-appointments-p9"
+    },
+    {
+      title: "Check for available GP appointments",
+      href: "/pages/services/study-a/gp-appointment-start"
+    }
+  ]
+}) }}
+
+      
+      <!-- <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+
+      <h2 class="nhsuk-heading-s">What you can do next</h2>
+
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "View upcoming appointments",
+            href: "#"
+          }
+        ]
+      }) }} -->
+
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+

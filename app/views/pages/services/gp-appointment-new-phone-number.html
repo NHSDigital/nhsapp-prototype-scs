@@ -1,0 +1,45 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/services/gp-appointment-reason" %}
+
+{% set pageHeading = "Enter a phone number for this appointment" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/services/gp-appointment-confirm-v2" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          {{ pageHeading }}
+        </h1>
+
+        {{ input({
+          label: {
+          text: ""
+          },
+          id: "input-width-20",
+          name: "test-width-20",
+          classes: "nhsuk-input--width-20"
+        }) }}
+
+        <br>
+        <br>
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+

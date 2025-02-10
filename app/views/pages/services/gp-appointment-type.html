@@ -1,0 +1,82 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/services/gp-appointment-start" %}
+
+{% set pageHeading = "Select an appointment type" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/services/gp-appointment-location" novalidate="novalidate">
+
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          {{ pageHeading }}
+        </h1>
+
+        {{ radios({
+          idPrefix: "gp-appointment-type",
+          name: "gp-appointment-type",
+          fieldset: {
+            legend: {
+            }
+          },
+          "items": [
+            {
+              value: "Routine GP",
+              text: "Routine GP",
+              checked: checked("gp-appointment-type", "Routine GP")
+            },
+            {
+              value: "Asthma clinic",
+              text: "Asthma clinic",
+              checked: checked("gp-appointment-type", "Asthma clinic")
+            },
+            {
+              value: "Warfarin clinic",
+              text: "Warfarin clinic",
+              checked: checked("gp-appointment-type", "Warfarin clinic")
+            },
+            {
+              value: "Blood test",
+              text: "Blood test",
+              checked: checked("gp-appointment-type", "Blood test")
+            },
+            {
+              value: "Phone appointment",
+              text: "Phone appointment",
+              checked: checked("gp-appointment-type", "Phone appointment")
+            },
+            {
+              value: "Flu vaccination",
+              text: "Flu vaccination",
+              checked: checked("gp-appointment-type", "Flu vaccine")
+            }
+          ]
+        }) }}
+
+        {{ details({
+          text: "Tips from your GP on how to book an appointment",
+          HTML: "
+          Blood tests are INVITE ONLY and should be booked with Nurse Donna at the Southbank Practice. Also book with Donna for warfarin clinic and b12 injections. Please remember to cancel your appointment if it is no longer needed. Thanks</p>
+          "
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+

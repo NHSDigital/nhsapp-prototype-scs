@@ -1,0 +1,62 @@
+{% extends 'layout-app.html' %}
+
+{% set mainClasses = "nhsuk-main-wrapper" %}
+
+{% block pageTitle %}
+  {{ pageHeading }} - NHS App prototype
+{% endblock %}
+
+{% block customMetaData %}
+  <meta name="theme-color" content="#005eb8">
+{% endblock %}
+
+<!-- HEADER -->
+{% block header %}
+{% endblock %}
+
+{% block main %}
+{% if overlay === true %}
+  <div class="app-login-wrapper app-login-wrapper--overlay">
+{% else %}
+  <div class="app-login-wrapper">
+{% endif %}
+
+<body>
+  <div style="background-color: #005eb8; height: 50vh; position:relative;">
+    <img class="app-card-link__img" src="/images/graphics/Graphic.svg" style="position:absolute; bottom:0">
+  </div>
+  
+  <div style="display:flex; flex-direction:column; background-color: #ffffff; height:50vh; width: 100%; padding: 20px; color: black;">
+    <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+      Turn on notifications?
+    </h1>
+    
+    <!-- Unordered List for the White Section -->
+    <ul style="color: black;">
+      <li>Helps save on texts and letters cost</li>
+      <li>Contactable without address or phone number</li>
+      <li>Safest channel to receive messages</li>
+    </ul>
+    
+    {% from 'button/macro.njk' import button %}
+    {{ button({
+      text: "Turn on notifications"
+    }) }}
+
+    <a style="align-self:center;" href="#">Not now</a>
+
+  </div>
+</body>
+
+
+  </div>
+</div>
+{% endblock %}
+
+<!-- FOOTER -->
+{% block footer %}
+{% endblock %}
+
+
+
+

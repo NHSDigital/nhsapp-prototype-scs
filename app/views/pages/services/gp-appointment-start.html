@@ -1,0 +1,60 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Check for available GP appointments" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/services/gp-appointment-type" novalidate="novalidate">
+
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <p>
+        Use this service to check for available GP appointments at your GP surgery.<br>
+        <br>
+        For urgent medical advice, go to 
+        <a href="#" class="app-link nhsuk-link--no-visited-state">111.nhs.uk</a> 
+        or call 111.
+      </p>
+
+      <hr>
+
+
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+      <ul>      
+        <li>Read the appointment booking guidance from your GP</li>
+      </ul>
+
+      <br>
+
+            <!-- SECTION - SERVICES -->
+            {{ nhsappSectionHeading({
+              headingText: "Appointment booking guidance from your GP",
+              subheadingText: "Blood tests are INVITE ONLY and should be booked with Nurse Donna at the Southbank Practice. Also book with Donna for warfarin clinic and b12 injections. Please remember to cancel your appointment if it is no longer needed. Thanks"
+            })}}
+
+            {{ button({
+              text: "Start",
+              classes: "nhsapp-button"
+            }) }}
+
+
+          </form>
+
+
+    </div>
+  </div>
+
+  {% endblock %}

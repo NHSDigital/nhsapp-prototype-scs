@@ -1,0 +1,62 @@
+{% extends 'layout-app-study-a.html' %}
+
+{% set hub = "Your health" %}
+
+{% set pageHeading = "Your health" %}
+{% set pageDescription = "View your personal records and choices" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <!-- PANEL LINK CARD - Your health -->
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "GP health record",
+            href: "#"
+          },
+          {
+            title: "View and manage prescriptions",
+            href: "#"
+          },
+          {
+            title: "Upcoming and past appointments",
+            href: "/pages/study-a/your-health/upcoming-and-past-appointments-p9"
+          },
+          {
+            title: "Test results and imaging",
+            href: "#"
+          },
+          {
+            title: "COVID-19 vaccine record",
+            href: "#"
+          },
+          {
+            title: "NHS COVID Pass",
+            href: "#"
+          },
+          {
+            title: "Your health choices",
+            href: "#"
+          },
+          {
+            title: "Care plans",
+            href: "#"
+          }
+        ]
+      })}}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/your-health/study-a/gp-appointment-cancel-reason" %}
+
+{% set pageHeading = "Are you sure you want to cancel this appointment?" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/your-health/study-a/gp-appointment-cancelled" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+<p>This action cannot be undone, and you will have to rebook a different appointment if you change your mind</p>
+
+        {{ button({
+          text: "Cancel appointment",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

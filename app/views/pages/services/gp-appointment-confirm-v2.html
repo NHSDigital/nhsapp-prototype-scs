@@ -1,0 +1,152 @@
+{% extends 'layout-app-study-a.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Check appointment details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        titleSmall: true
+      })}}
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Appointment type
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-type'] or 'Blood test' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-type">
+              Change<span class="nhsuk-u-visually-hidden"> appointment type</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-location'] or '?' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-location">
+              Change<span class="nhsuk-u-visually-hidden"> appointment location</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Healthcare professional
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-clinician'] or '?' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-clinician">
+              Change<span class="nhsuk-u-visually-hidden"> appointment clinician</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Time and date of appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-time'] or '?' }} <br>
+            {{ data['appointment-date'] or '?' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-select-appointment-v6">
+              Change<span class="nhsuk-u-visually-hidden"> appointment date and time</span>
+            </a>
+          </dd>
+        </div>
+
+
+        <!-- <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-reason'] or '<em>No reason provided</em>' }}
+          </dd>
+        </div> -->
+   
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['gp-appointment-reason'] %}
+              {{ data['gp-appointment-reason'] }}
+            {% else %}
+            <p><em>No reason provided</em></p>
+            {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-reason">
+              Change<span class="nhsuk-u-visually-hidden"> appointment reason</span>
+            </a>
+          </dd>
+        </div>
+        
+
+        {% if "Phone appointment" in data['gp-appointment-type'] %}
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-telephone-number'] or '?' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-phone-number">
+              Change<span class="nhsuk-u-visually-hidden"> appointment phone number</span>
+            </a>
+          </dd>
+        </div>
+
+        {% endif %}
+
+
+      </dl>
+
+
+      <form id="form" method="post" action="/pages/services/gp-appointment-confirmed" novalidate="novalidate">
+
+        <!--{% if data['web'] === "yes" %}
+
+          {{ button({
+            text: "Confirm appointment",
+            classes: "nhsapp-button"
+          }) }}
+
+        {% endif %}-->
+
+        {{ button({
+          text: "Confirm appointment",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

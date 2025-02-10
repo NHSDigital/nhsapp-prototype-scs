@@ -1,0 +1,135 @@
+{% extends 'layout-app-study-c-t2.html' %}
+
+{% set hub = "Home" %}
+
+{% set pageHeading = "Home" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        logo: data['web'] !== "yes",
+        greetingName: data['userFirstName'] + " " + data['userLastName'],
+        nhsNumber: data['nhsNumber']
+      })}}
+
+      <!-- SECTION - SERVICES -->
+      {{ nhsappSectionHeading({
+        headingText: "Services",
+        linkText: "View all",
+        linkUrl: "/pages/study-c/services-p9-t2",
+        linkAriaLabel: "View all services"
+      }) }}
+
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "Request medicines",
+            href: "#"
+          },
+          {
+            title: "Check if you need urgent medical help using 111 online",
+            href: "#"
+          }
+        ]
+      }) }}
+
+      <!-- SECTION - YOUR HEALTH -->
+      {{ nhsappSectionHeading({
+        headingText: "Your health",
+        linkText: "View all",
+        linkUrl: "/pages/study-c/your-health-p9-t2",
+        linkAriaLabel: "View all your health"
+      }) }}
+
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "GP health record",
+            href: "#"
+          },
+          {
+            title: "View and manage prescriptions",
+            href: "#"
+          },
+          {
+            title: "Upcoming and past appointments",
+            href: "/pages/study-c/your-health/upcoming-and-past-appointments-p9-t2"
+          }
+        ]
+      }) }}
+
+      <!-- SECTION - MESSAGES -->
+      {{ nhsappSectionHeading({
+        headingText: "Messages"
+      }) }}
+
+      {% if data['messages'] > 0 %}
+        {{ nhsappCardGroup({
+          stacked: true,
+          cards: [
+            {
+              title: 'View your messages',
+              href: '#',
+              prefixIcon: 'messagesUnread',
+              linkAriaLabel: 'Messages, you have ' + data['messages'] + ' unread messages',
+              badgeLarge: {
+                count: data['messages'],
+                label: 'unread messages',
+                ariaHidden: true
+              }
+            }
+          ]
+        }) }}
+      {% else %}
+        {{ nhsappCardGroup({
+          stacked: true,
+          cards: [
+            {
+              title: 'View your messages',
+              href: '#',
+              prefixIcon: 'messages'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+            <!-- SECTION - SWITCH PROFILES -->
+            {{ nhsappSectionHeading({
+              headingText: "Account"
+            }) }}
+      
+            {{ nhsappCard({
+              title: 'Manage services for another person',
+              href: '#',
+              prefixIcon: 'switchProfile'
+            }) }}
+
+
+      <!-- CAMPAIGN CARD -->
+      <div class="nhsapp-card app-card-link--dark-blue app-card-link--full-width nhsuk-u-margin-top-7">
+        <div class="app-card-link__media">
+          <img class="app-card-link__img" src="/images/campaigns/campaign-card-image-3.jpg" alt="">
+        </div>
+        <div class="nhsapp-card__container">
+          <div class="nhsapp-card__content">
+            <a href="#" class="nhsapp-card__link nhsuk-u-font-size-32">
+              Help change the NHS
+            </a>
+            <div class="nhsapp-card__below">
+              <p class="nhsuk-u-margin-top-2">Have your say on making the NHS fit for the future</p>
+            </div>
+          </div>
+          {{ nhsappIcon('chevronRight') }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

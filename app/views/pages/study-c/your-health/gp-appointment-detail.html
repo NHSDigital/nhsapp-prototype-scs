@@ -1,0 +1,78 @@
+{% extends 'layout-app-study-c-t2.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/study-a/your-health/your-gp-appointments-t2" %}
+
+{% set pageHeading = "Upcoming appointment details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true
+      })}}
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Appointment details
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Flu vaccination<br>
+            Tuesday 28th January 2024<br>
+            8:30am<br>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+             Southbank Practice
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Clinician
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Nurse Donna
+          </dd>
+        </div>
+   
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Invited to book vaccine
+          </dd>
+        </div>
+        
+
+      </dl>
+
+
+      <form id="form" method="post" action="/pages/study-c/your-health/gp-appointment-cancel-reason" novalidate="novalidate">
+
+
+        {{ button({
+          text: "Cancel appointment",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}
