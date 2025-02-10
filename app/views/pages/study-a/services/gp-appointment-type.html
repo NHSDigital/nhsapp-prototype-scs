@@ -1,0 +1,71 @@
+{% extends 'layout-app-study-a.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Select an appointment type" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/study-a/services/gp-appointment-location" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+        {{ radios({
+          idPrefix: "gp-appointment-type",
+          name: "gp-appointment-type",
+          fieldset: {
+            legend: {
+            }
+          },
+          "items": [
+            {
+              value: "Routine GP",
+              text: "Routine GP",
+              checked: checked("gp-appointment-type", "Routine GP")
+            },
+            {
+              value: "Asthma clinic",
+              text: "Asthma clinic",
+              checked: checked("gp-appointment-type", "Asthma clinic")
+            },
+            {
+              value: "Warfarin clinic",
+              text: "Warfarin clinic",
+              checked: checked("gp-appointment-type", "Warfarin clinic")
+            },
+            {
+              value: "Blood test",
+              text: "Blood test",
+              checked: checked("gp-appointment-type", "Blood test")
+            },
+            {
+              value: "B12 Injection",
+              text: "B12 Injection",
+              checked: checked("gp-appointment-type", "B12 Injection")
+            },
+            {
+              value: "Flu vaccination",
+              text: "Flu vaccination",
+              checked: checked("gp-appointment-type", "Flu vaccine")
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

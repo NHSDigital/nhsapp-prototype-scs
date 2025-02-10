@@ -1,0 +1,70 @@
+{% extends 'layout-app-study-c.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Select a clinician" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/study-c/services/gp-appointment-select-appointment-v6" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+        {{ checkboxes({
+          idPrefix: "gp-appointment-clinician",
+          name: "gp-appointment-clinician",
+          fieldset: {
+            legend: {
+            }
+          },
+          hint: {
+            text: "Choose all that apply"
+          },
+          "items": [
+            {
+              value: "Dr Max Smith",
+              text: "Dr Max Smith",
+              checked: checked("gp-appointment-clinician", "Dr Max Smith"),
+              exclusiveGroup: "clinician-list"
+            },
+            {
+              value: "Dr Louise Williams",
+              text: "Dr Louise Williams",
+              checked: checked("gp-appointment-clinician", "Dr Louise Williams"),
+              exclusiveGroup: "clinician-list"
+            },
+            {
+              value: "Nurse Donna",
+              text: "Nurse Donna",
+              checked: checked("gp-appointment-clinician", "Nurse Donna"),
+              exclusiveGroup: "clinician-list"
+            }
+          ]
+        }) }}
+
+        {{ details({
+          text: "Appointment booking guidance from your GP",
+          HTML: "
+          <p>Blood tests are INVITE ONLY and should be booked with Nurse Donna at the Southbank Practice. Also book with Donna for warfarin clinic and b12 injections. Please remember to cancel your appointment if it is no longer needed. Thanks</p>
+          "
+        }) }}
+
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}
+

@@ -1,0 +1,77 @@
+{% extends 'layout-app.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Upcoming appointment details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true
+      })}}
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Appointment details
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Blood test<br>
+            Monday 20th January 2024<br>
+            9am<br>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            York Road Practice
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Clinician
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Nurse Donna
+          </dd>
+        </div>
+   
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Invited to book blood test
+          </dd>
+        </div>
+        
+
+      </dl>
+
+
+      <form id="form" method="post" action="/pages/your-health/study-a/gp-appointment-cancel-reason" novalidate="novalidate">
+
+
+        {{ button({
+          text: "Cancel appointment",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

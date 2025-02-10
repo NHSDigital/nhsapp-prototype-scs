@@ -1,0 +1,114 @@
+{% extends 'layout-app-study-b.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Check appointment details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true
+      })}}
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Appointment type
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-type'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-location'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Clinician
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-clinician'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Date of appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-date'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Time of appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['appointment-time'] or '?' }}
+          </dd>
+        </div>
+
+        <!-- <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-reason'] or '<em>No reason provided</em>' }}
+          </dd>
+        </div> -->
+   
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['gp-appointment-reason'] %}
+              {{ data['gp-appointment-reason'] }}
+            {% else %}
+              <p>?</p>
+            {% endif %}
+          </dd>
+        </div>
+        
+
+      </dl>
+
+
+      <form id="form" method="post" action="/pages/study-b/services/gp-appointment-confirmed" novalidate="novalidate">
+
+        <!--{% if data['web'] === "yes" %}
+
+          {{ button({
+            text: "Confirm appointment",
+            classes: "nhsapp-button"
+          }) }}
+
+        {% endif %}-->
+
+        {{ button({
+          text: "Confirm appointment",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

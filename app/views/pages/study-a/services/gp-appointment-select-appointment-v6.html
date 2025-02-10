@@ -1,0 +1,316 @@
+{% extends 'layout-app-study-a.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Select an appointment" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+        {{ pageHeading }}
+      </h1>
+
+      {% if not (
+        ("Southbank Practice" in data['gp-appointment-location'] or "none" in data['gp-appointment-location']) and 
+        ("Nurse Donna" in data['gp-appointment-clinician'] or "none" in data['gp-appointment-clinician']) and
+        ("Blood test" in data ['gp-appointment-type'])
+    ) %}
+      <p>No available appointments</p>
+    {% else %}
+
+      <h2 class="nhsuk-heading-m">
+        Monday 20 Jan 2025
+      </h2>
+
+      <ul class="nhsapp-cards nhsapp-cards--stacked">
+        <li class="nhsapp-card">
+          <form id="appointmentForm3" method="post" action="/pages/study-a/services/gp-appointment-reason">
+            <input type="hidden" name="appointment-time" value="8am">
+            <input type="hidden" name="appointment-date" value="Monday 20 Jan 2025">
+            <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+            <input type="hidden" name="appointment-location" value="Southbank Practice">
+            <div class="nhsapp-card__container">
+              <div class="nhsapp-card__content">
+                <a href="javascript:{}" onclick="document.getElementById('appointmentForm3').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                  8am <span class="nhsuk-u-visually-hidden">with Nurse Donna (Female) at Southbank Practice on Wednesday 29 May 2025</span>
+                </a>
+                <div class="nhsapp-card__below">
+                  <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                  <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                </div>
+              </div>
+              {{ nhsappIcon('chevronRight') }}
+            </div>
+          </form>
+        </li>
+        <li class="nhsapp-card">
+          <form id="appointmentForm3" method="post" action="/pages/study-a/services/gp-appointment-reason">
+            <input type="hidden" name="appointment-time" value="9am">
+            <input type="hidden" name="appointment-date" value="Monday 20 Jan 2025">
+            <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+            <input type="hidden" name="appointment-location" value="Southbank Practice">
+            <div class="nhsapp-card__container">
+              <div class="nhsapp-card__content">
+                <a href="javascript:{}" onclick="document.getElementById('appointmentForm3').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                  9am <span class="nhsuk-u-visually-hidden">with Nurse Donna (Female) at Southbank Practice on Wednesday 29 May 2025</span>
+                </a>
+                <div class="nhsapp-card__below">
+                  <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                  <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                </div>
+              </div>
+              {{ nhsappIcon('chevronRight') }}
+            </div>
+          </form>
+        </li>
+      </ul>
+
+      <p class="nhsuk-u-margin-bottom-5"></p>
+
+      <h2 class="nhsuk-heading-m">
+        Tuesday 21 Jan 2025
+      </h2>
+
+      <ul class="nhsapp-cards nhsapp-cards--stacked">
+        <li class="nhsapp-card">
+          <form id="appointmentForm9" method="post" action="/pages/study-a/services/gp-appointment-reason">
+            <input type="hidden" name="appointment-time" value="8am">
+            <input type="hidden" name="appointment-date" value="Tuesday 21 Jan 2025">
+            <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+            <input type="hidden" name="appointment-location" value="Southbank Practice">
+            <div class="nhsapp-card__container">
+              <div class="nhsapp-card__content">
+                <a href="javascript:{}" onclick="document.getElementById('appointmentForm9').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                  8am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Thursday 30 May 2025</span>
+                </a>
+                <div class="nhsapp-card__below">
+                  <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                  <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                </div>
+              </div>
+              {{ nhsappIcon('chevronRight') }}
+            </div>
+          </form>
+        </li>
+        <li class="nhsapp-card">
+          <form id="appointmentForm9" method="post" action="/pages/study-a/services/gp-appointment-reason">
+            <input type="hidden" name="appointment-time" value="10:30am">
+            <input type="hidden" name="appointment-date" value="Tuesday 21 Jan 2025">
+            <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+            <input type="hidden" name="appointment-location" value="Southbank Practice">
+            <div class="nhsapp-card__container">
+              <div class="nhsapp-card__content">
+                <a href="javascript:{}" onclick="document.getElementById('appointmentForm9').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                  10:30am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Thursday 30 May 2025</span>
+                </a>
+                <div class="nhsapp-card__below">
+                  <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                  <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                </div>
+              </div>
+              {{ nhsappIcon('chevronRight') }}
+            </div>
+          </form>
+        </li>
+      </ul>
+
+      <p class="nhsuk-u-margin-bottom-5"></p>
+
+      <h2 class="nhsuk-heading-m">
+        Wednesday 22 Jan 2025
+      </h2>
+
+      <ul class="nhsapp-cards nhsapp-cards--stacked">
+          <li class="nhsapp-card">
+            <form id="appointmentForm14" method="post" action="/pages/study-a/services/gp-appointment-reason">
+              <input type="hidden" name="appointment-time" value="9:30am">
+              <input type="hidden" name="appointment-date" value="Wednesday 22 Jan 2025">
+              <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+              <input type="hidden" name="appointment-location" value="Southbank Practice">
+              <div class="nhsapp-card__container">
+                <div class="nhsapp-card__content">
+                  <a href="javascript:{}" onclick="document.getElementById('appointmentForm14').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                    9:30am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Friday 31 May 2025</span>
+                  </a>
+                  <div class="nhsapp-card__below">
+                    <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                    <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                  </div>
+                </div>
+                {{ nhsappIcon('chevronRight') }}
+              </div>
+            </form>
+          </li>
+      </ul>
+
+      {% if data['gp-appointment-location'] == "" and data['gp-appointment-clinician-sex'] == "" and data['gp-appointment-clinician'] == "" %}
+      <!-- MORE APPOINTMENTS -->
+      <div id="moreAppointments" tabindex="0" style="display:none;">
+        {% else %}
+        {% endif %}
+
+        <h2 class="nhsuk-heading-m nhsuk-u-padding-top-1">
+          Thursday 23 Jan 2025
+        </h2>
+
+        <ul class="nhsapp-cards nhsapp-cards--stacked">
+          <li class="nhsapp-card">
+            <form id="appointmentForm19" method="post" action="/pages/study-a/services/gp-appointment-reason">
+              <input type="hidden" name="appointment-time" value="9am">
+              <input type="hidden" name="appointment-date" value="Thursday 23 Jan 2025">
+              <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+              <input type="hidden" name="appointment-location" value="Southbank Practice">
+              <div class="nhsapp-card__container">
+                <div class="nhsapp-card__content">
+                  <a href="javascript:{}" onclick="document.getElementById('appointmentForm19').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                    9am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Monday 3 June 2025</span>
+                  </a>
+                  <div class="nhsapp-card__below">
+                    <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                    <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                  </div>
+                </div>
+                {{ nhsappIcon('chevronRight') }}
+              </div>
+            </form>
+          </li>
+          <li class="nhsapp-card">
+            <form id="appointmentForm19" method="post" action="/pages/study-a/services/gp-appointment-reason">
+              <input type="hidden" name="appointment-time" value="11am">
+              <input type="hidden" name="appointment-date" value="Thursday 23 Jan 2025">
+              <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+              <input type="hidden" name="appointment-location" value="Southbank Practice">
+              <div class="nhsapp-card__container">
+                <div class="nhsapp-card__content">
+                  <a href="javascript:{}" onclick="document.getElementById('appointmentForm19').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                    11am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Monday 3 June 2025</span>
+                  </a>
+                  <div class="nhsapp-card__below">
+                    <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                    <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                  </div>
+                </div>
+                {{ nhsappIcon('chevronRight') }}
+              </div>
+            </form>
+          </li>
+        </ul>
+
+      <p class="nhsuk-u-margin-bottom-5"></p>
+
+        <h2 class="nhsuk-heading-m">
+          Friday 24 Jan 2025
+        </h2>
+
+        <ul class="nhsapp-cards nhsapp-cards--stacked">
+          <li class="nhsapp-card">
+            <form id="appointmentForm25" method="post" action="/pages/study-a/services/gp-appointment-reason">
+              <input type="hidden" name="appointment-time" value="8am">
+              <input type="hidden" name="appointment-date" value="Friday 24 Jan 2025">
+              <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+              <input type="hidden" name="appointment-location" value="Southbank Practice">
+              <div class="nhsapp-card__container">
+                <div class="nhsapp-card__content">
+                  <a href="javascript:{}" onclick="document.getElementById('appointmentForm25').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                    8am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Tuesday 4 June 2025</span>
+                  </a>
+                  <div class="nhsapp-card__below">
+                    <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                    <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                  </div>
+                </div>
+                {{ nhsappIcon('chevronRight') }}
+              </div>
+            </form>
+          </li>
+        </ul>
+
+      <p class="nhsuk-u-margin-bottom-5"></p>
+
+        <h2 class="nhsuk-heading-m">
+          Monday 27 Jan 2025
+        </h2>
+
+        <ul class="nhsapp-cards nhsapp-cards--stacked">
+            <li class="nhsapp-card">
+              <form id="appointmentForm30" method="post" action="/pages/study-a/services/gp-appointment-reason">
+                <input type="hidden" name="appointment-time" value="8am">
+                <input type="hidden" name="appointment-date" value="Monday 27 Jan 2025">
+                <input type="hidden" name="appointment-clinician" value="Nurse Donna">
+                <input type="hidden" name="appointment-location" value="Southbank Practice">
+                <div class="nhsapp-card__container">
+                  <div class="nhsapp-card__content">
+                    <a href="javascript:{}" onclick="document.getElementById('appointmentForm30').submit();" class="nhsapp-card__link nhsuk-link--no-visited-state">
+                      8am <span class="nhsuk-u-visually-hidden">with Nurse Donna at Southbank Practice on Wednesday 5 June 2025</span>
+                    </a>
+                    <div class="nhsapp-card__below">
+                      <p aria-hidden="true" class="nhsuk-u-margin-bottom-0 nhsuk-u-margin-top-1">Nurse Donna</p>
+                      <p aria-hidden="true" class="nhsuk-u-secondary-text-color nhsuk-u-margin-top-1">Southbank Practice</p>
+                    </div>
+                  </div>
+                  {{ nhsappIcon('chevronRight') }}
+                </div>
+              </form>
+            </li>
+        </ul>
+      
+      <!-- {% if data['gp-appointment-location'] == "none" and data['gp-appointment-clinician'] == "none" %}
+        <p id="loadMoreCount" style="display:none;">You have viewed 32 of 32 appointments</p>
+      </div>
+      <div id="loadMore">
+        <p id="loadMoreText">You have viewed 16 of 32 appointments</p>
+        <button id="loadMoreBtn" class="nhsuk-button nhsapp-button app-button--secondary">
+          Load more <span class="nhsuk-u-visually-hidden">appointments</span>
+        </button>
+        <span id="loader" style="display:none" class="nhsuk-loader">
+          <span class="nhsuk-loader__spinner">
+            <span class="nhsuk-u-visually-hidden">Loading appointments</span>
+          </span>
+        </span>
+      </div>
+      {% else %}
+      {% endif %} -->
+
+    {% endif %}
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block pageScripts %}
+    {% if data['gp-appointment-location'] == "" and data['gp-appointment-clinician-sex'] == "" and data['gp-appointment-clinician'] == "" %}
+      
+      <!-- JAVASCRIPT TO SHOW THE HIDDEN CONTENT -->
+      <script>
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+          // Get a reference to the hidden div
+          var hiddenDiv = document.getElementById('moreAppointments');
+
+          loader.style.display = 'block';
+          loadMoreBtn.style.display = 'none';
+          loadMoreText.style.display = 'none';
+
+          window.setTimeout(function () {
+            // Check if the div is currently hidden
+          if (hiddenDiv.style.display === 'none') {
+            // If hidden, show the div
+            hiddenDiv.style.display = 'block';
+            hiddenDiv.focus()
+            loadMore.style.display = 'none';
+            loadMoreCount.style.display = 'block';
+          } else {
+            // If visible, hide the div
+            hiddenDiv.style.display = 'none';
+          }
+        }, 1500);
+        });
+      </script>
+    {% else %}
+    {% endif %}
+  {% endblock %}
