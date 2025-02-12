@@ -1,0 +1,43 @@
+{% extends 'layout-app-pifu1.html' %}
+
+{% set hub = "Your health" %}
+{% set isQuestionnairePage = false %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/pifu-page" %}
+
+{% set pageHeading = "Orthopaedic follow-up plan" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+       <!-- note: need to add link -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <p>You can request a follow up until Friday 21 June 2026 at The Willows, Croydon University Hospital</p>
+
+      <hr class="nhsuk-section-break--l">
+
+      <h2>Your appointment request</h2>
+      <p>You can request a follow up until Friday 21 June 2026 at The Willows, Croydon University Hospital</p>
+
+
+      <a href=/pages/pifu-1/pifu-screens/questionnaire-intro>
+      <button
+     class="nhsuk-button nhsapp-button--secondary nhsapp-button"
+     data-module="nhsuk-button"
+     type="submit"
+    >
+      Request follow up appointment
+    </button>
+    </div>
+  </div>
+
+  {% endblock %}

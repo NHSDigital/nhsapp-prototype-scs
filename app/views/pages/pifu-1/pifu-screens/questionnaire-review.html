@@ -1,0 +1,90 @@
+{% extends 'layout-app-pifu1.html' %}
+
+{% set hub = "Services" %}
+{% set isQuestionnairePage = false %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-questionnaire/questionnaire-intro" %}
+
+{% set pageHeading = "Check appointment request details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <!--LIST-->
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Do you want your follow up appointment?
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-type'] or 'Blood test' }}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-type">
+              Change<span class="nhsuk-u-visually-hidden"> appointment type</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Do you want your follow up appointment?
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['gp-appointment-type'] or 'Blood test' }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-type">
+                Change<span class="nhsuk-u-visually-hidden"> appointment type</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Do you want your follow up appointment?
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['gp-appointment-type'] or 'Blood test' }}
+            </dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a class="nhsuk-link--no-visited-state" href="/pages/services/gp-appointment-type">
+                Change<span class="nhsuk-u-visually-hidden"> appointment type</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+        
+      </div>
+
+      <!--BUTTON-->
+      <a href=/pages/pifu-1/pifu-screens/questionnaire-confirmation>
+        <button
+        class="nhsuk-button nhsapp-button--secondary nhsapp-button"
+        data-module="nhsuk-button"
+        type="submit"
+       >
+       Confirm request
+       </button>
+      </a>
+      
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block afterContent %}
+
+  {% endblock %}

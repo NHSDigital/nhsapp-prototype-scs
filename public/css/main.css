@@ -7544,11 +7544,67 @@ b {
 }
 
 .nhsapp-button {
-  padding: 12px 32px;
+  padding: 12px 22px;
 }
 @media (max-width: 40.0525em) {
   .nhsapp-button {
+    padding: 10px 22px;
     width: 100%;
+  }
+}
+
+.nhsapp-button--secondary {
+  background-color: transparent;
+  border: 2px solid #005eb8;
+  box-shadow: 0 2px 0 #005eb8;
+  color: #005eb8;
+  padding-bottom: 13px;
+  padding-top: 13px;
+}
+@media (max-width: 40.0525em) {
+  .nhsapp-button--secondary {
+    padding-bottom: 11px;
+    padding-top: 11px;
+  }
+}
+.nhsapp-button--secondary::before {
+  bottom: -4px;
+}
+.nhsapp-button--secondary:hover {
+  background-color: #d9e7f4;
+  color: #005eb8;
+}
+.nhsapp-button--secondary:link, .nhsapp-button--secondary:visited {
+  color: #005eb8;
+}
+.nhsapp-button--secondary:focus {
+  background: #ffeb3b;
+  border-color: #ffeb3b;
+  border-bottom: 0;
+  box-shadow: 0 4px 0 #212b32;
+  color: #212b32;
+  outline: 4px solid transparent;
+}
+.nhsapp-button--secondary:focus:visited {
+  color: #212b32;
+}
+.nhsapp-button--secondary:focus:visited:active {
+  color: #005eb8;
+}
+.nhsapp-button--secondary:active {
+  background: #bfd7ed;
+  border-color: #005eb8;
+  border-bottom: 2px solid;
+  box-shadow: none;
+  color: #005eb8;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  top: 4px;
+}
+@media (max-width: 40.0525em) {
+  .nhsapp-button--secondary:active {
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 }
 
@@ -7567,24 +7623,30 @@ b {
   font-weight: 400;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 1.1875;
+  line-height: 1.5;
   display: inline-block;
   max-width: 100%;
-  margin-top: 8px;
-  margin-bottom: 24px;
+  margin-top: 14px;
+  margin-bottom: 14px;
   text-align: center;
 }
 @media (min-width: 40.0625em) {
   .nhsapp-button-group .nhsuk-link {
     font-size: 19px;
     font-size: 1.1875rem;
-    line-height: 1;
+    line-height: 1.47368;
   }
 }
 @media print {
   .nhsapp-button-group .nhsuk-link {
     font-size: 14pt;
-    line-height: 19px;
+    line-height: 1.15;
+  }
+}
+@media (max-width: 40.0525em) {
+  .nhsapp-button-group .nhsuk-link {
+    margin-top: 8px;
+    margin-bottom: 24px;
   }
 }
 .nhsapp-button-group .nhsuk-button {
@@ -7595,7 +7657,7 @@ b {
     margin-right: -24px;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: flex-start;
   }
   .nhsapp-button-group .nhsuk-button,
 .nhsapp-button-group .nhsuk-link {
@@ -7783,6 +7845,95 @@ b {
 .nhsapp-card + .nhsuk-heading-s {
     padding-top: 8px;
   }
+}
+
+/**
+ * Original code taken from GDS (Government Digital Service)
+ * https://github.com/alphagov/govuk-frontend
+ *
+ * 1. This is an if-all-else-fails attempt to stop long words from overflowing the container
+      on very narrow viewports by forcing them to break and wrap instead. This
+      overflowing is more likely to happen when user increases text size on a mobile eg. using
+      iOS Safari text resize controls.
+
+      The overflowing is a particular problem with the panel component since it uses white
+      text: when the text overflows the container, it is invisible on the white (page)
+      background. When the text in our other components overflow, the user might have to scroll
+      horizontally to view it but the the text remains legible.
+ * 2. Support IE (autoprefixer doesn't add this as it's not a prefix)
+ */
+.nhsapp-panel {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  background: #007f3b;
+  border: 4px solid transparent;
+  box-sizing: border-box;
+  color: #ffffff;
+  padding: 36px;
+}
+@media (min-width: 40.0625em) {
+  .nhsapp-panel {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.33333;
+  }
+}
+@media print {
+  .nhsapp-panel {
+    font-size: 18pt;
+    line-height: 1.15;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsapp-panel {
+    margin-bottom: 24px;
+  }
+}
+@media (max-width: 40.0525em) {
+  .nhsapp-panel {
+    padding: 20px;
+    overflow-wrap: break-word; /* [1] */
+    word-wrap: break-word; /* [2] */
+  }
+}
+@media print {
+  .nhsapp-panel {
+    border-color: currentcolor;
+    color: #212b32;
+    background: none;
+  }
+}
+
+.nhsapp-panel__title {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+@media (min-width: 40.0625em) {
+  .nhsapp-panel__title {
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1.16667;
+  }
+}
+@media print {
+  .nhsapp-panel__title {
+    font-size: 32pt;
+    line-height: 1.15;
+  }
+}
+@media (min-width: 40.0625em) {
+  .nhsapp-panel__title {
+    margin-bottom: 32px;
+  }
+}
+
+.nhsapp-panel__title:last-child {
+  margin-bottom: 0;
 }
 
 /* ==========================================================================

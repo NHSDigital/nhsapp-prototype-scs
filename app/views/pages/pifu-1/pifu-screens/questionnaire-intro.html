@@ -1,0 +1,69 @@
+{% extends 'layout-app-pifu1.html' %}
+
+{% set hub = "Services" %}
+{% set isQuestionnairePage = false %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-questionnaire/questionnaire-intro" %}
+
+{% set pageHeading = "Request orthopaedic follow up" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <!--DESCRIPTION-->
+       <p>Before your appointment request can be confirmed we need to ask some questions to make sure this is the right care for you.</p>
+
+      <!--EMERGENCY CARE CARD-->
+      <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+        <div class="nhsuk-card--care__heading-container">
+          <h2 class="nhsuk-card--care__heading">
+            <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 or go to A&amp;E now if:</span>
+          </h2>
+          <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+        </div>
+      
+        <div class="nhsuk-card__content">
+      
+          <ul>
+            <li>you or someone you know needs immediate help</li>
+            <li>you have seriously harmed yourself – for example, by taking a drug overdose</li>
+          </ul>
+          <p>A mental health emergency should be taken as seriously as a medical emergency.</p>
+          <p><a href="">Find your nearest A&E</a></p>
+        </div>
+        
+        
+      </div>
+
+      <!--CONTENT-->
+      <p>This questionnaire contains 5 questions and will take approximately 5 minutes</p>
+
+      <!--BUTTON-->
+      <a href=/pages/pifu-1/pifu-screens/questionnaire-1>
+        <button
+        class="nhsuk-button nhsapp-button--secondary nhsapp-button"
+        data-module="nhsuk-button"
+        type="submit"
+       >
+       Start questionnaire
+       </button>
+      </a>
+      
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block afterContent %}
+
+  {% endblock %}
