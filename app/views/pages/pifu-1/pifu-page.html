@@ -16,12 +16,23 @@
 
       <!-- DYNAMIC PAGE TITLE -->
        <!-- note: need to add link -->
-      {{ dynamicPageTitle({
+      <!-- {{ dynamicPageTitle({
         title: pageHeading,
         titleSecondary: true,
-        description: pageDescription
-      })}}
-      <p>link here</p>
+        description: pageDescription 
+      })}} -->
+      <div class="app-dynamic-page-title nhsuk-u-margin-bottom-2  ">
+        <h1 class="app-dynamic-page-title__heading">
+            Manage your follow up appointments
+          
+        </h1>
+        <p class="app-dynamic-page-title__description nhsuk-u-margin-bottom-0">
+          View and manage your follow up request plans (you might not receive physical information if you’ve moved)
+        </p>
+        
+      
+    </div>
+      <a><p>link here</p></a>
 
       <!-- SECTION -->
       {{ nhsappSectionHeading({
@@ -39,7 +50,7 @@
                 <strong class="nhsapp-tag nhsapp-tag--blue nhsuk-u-display-inline-block nhsuk-u-static-margin-bottom-3">Expires soon</strong>
               </div>
               {% endif %}
-              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-page-detail" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
+              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="/pages/pifu-1/pifu-screens/pifu-pathway-1" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
                 Orthopaedic follow-up plan
               </a>
               <div class="nhsapp-card__below">
