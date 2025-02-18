@@ -87,6 +87,10 @@
       {% include "components/back-link/include.html" %}
     {% endif %}
   {% endif %}
+
+  {% if isQuestionnairePage === true %}
+  <p>{{questionnaireHeaderContent}}</p>
+  {% endif %}
   
 {% endblock %}
 
