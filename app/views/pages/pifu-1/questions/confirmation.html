@@ -1,0 +1,107 @@
+{% extends 'layout-app-pifu-1.html' %}
+
+{% set hub = "Services" %}
+
+{% set pageHeading = "Appointment request submitted" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <div class="app-confirmation">
+        <h1 class="app-confirmation__title">{{ pageHeading }}</h1>
+      </div>
+
+      <h3>Dermatologist appointment request details</h3>
+      <p>Appointment request submitted on 23 March 2025 to The Willows, Croydon University Hospital</p>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+      
+        <p>Please note, this is an appointment request. Your hospital will contact you to schedule your appointment. For additional assistance, please call the number on your pathway letter.</p>
+      </div>
+
+    <!--Care card - urgent-->
+    <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+        <div class="nhsuk-card--care__heading-container">
+          <h2 class="nhsuk-card--care__heading">
+            <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 or go to A&amp;E now if:</span>
+          </h2>
+          <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+        </div>
+      
+        <div class="nhsuk-card__content">
+      
+          <ul>
+            <li>you or someone you know needs immediate help</li>
+            <li>you have seriously harmed yourself – for example, by taking a drug overdose</li>
+          </ul>
+          <p>A mental health emergency should be taken as seriously as a medical emergency.</p>
+          <p><a href="">Find your nearest A&E</a></p>
+      
+        </div>
+      </div>
+
+     <!--Care card - non-urgent -->
+     <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+        <div class="nhsuk-card--care__heading-container">
+          <h2 class="nhsuk-card--care__heading">
+            <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
+          </h2>
+          <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+        </div>
+      
+        <div class="nhsuk-card__content">
+      
+          <ul>
+            <li>your condition isn’t related to the follow up pathway </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--Card to navigate back to PIFU page-->
+
+      <ul class="nhsapp-cards">
+        <li class="nhsapp-card">
+          <div class="nhsapp-card__container">
+            <div class="nhsapp-card__content">
+              {% if data['appointment-letter'] != "read" %}
+              {% endif %}
+              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="/pages/pifu-1/pifu-page-pathway-1-2" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
+                View follow up plan
+              </a>
+            </div>
+            {{ nhsappIcon('chevronRight') }}
+          </div>
+        </li>
+      </ul>
+
+      
+        
+      <!-- {{ button({
+        text: "Add to calendar",
+        classes: "nhsuk-u-margin-top-1 nhsapp-button app-button--secondary"
+      }) }} -->
+
+      
+      <!-- <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+
+      <h2 class="nhsuk-heading-s">What you can do next</h2>
+
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "View upcoming appointments",
+            href: "#"
+          }
+        ]
+      }) }} -->
+
+
+    </div>
+  </div>
+
+  {% endblock %}

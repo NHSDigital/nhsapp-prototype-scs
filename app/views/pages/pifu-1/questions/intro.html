@@ -1,0 +1,48 @@
+{% extends 'layout-app-pifu-1.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-questionnaire/questionnaire-intro" %}
+
+{% set pageHeading = "Request dermatology follow up appointment" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+      
+        <p>Follow-up appointments are only available for certain conditions. If you're feeling unwell, please contact your GP. For urgent medical advice, visit 111.nhs.uk or call 111.</p>
+      </div>
+
+      <h3>Booking guidence</h3>
+      <p>Before confirming your appointment request, we need to ask a few questions to ensure this is the right care for you. </p>
+      <p>This questionnaire has 5 questions and will take about 5 minutes.</p>
+
+      <a href="/pages/pifu-1/questions/question-1">
+        <button
+         class="nhsuk-button nhsapp-button--primary nhsapp-button"
+         data-module="nhsuk-button"
+         type="submit"
+         >
+         Start questionnaire
+        </button>
+      </a>
+
+        
+
+    </div>
+  </div>
+
+
+  {% endblock %}
