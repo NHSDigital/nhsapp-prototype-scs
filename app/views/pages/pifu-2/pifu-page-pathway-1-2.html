@@ -1,0 +1,42 @@
+{% extends 'layout-app-pifu-2.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-2/pifu-page" %}
+
+{% set pageHeading = "Dermatology follow-up plan" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+       <!-- note: need to add link -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <p>You can request an appointment until Friday 21 June 2026 at The Willows, Croydon University Hospital</p>
+      <br>
+
+      <h3>Request a follow up</h3>
+      <p>You have requested a follow-up appointment on 10 January 2025</p>
+
+    <a href="/pages/pifu-1/questions/intro">
+    <button
+     class="nhsuk-button nhsapp-button--secondary nhsapp-button"
+     data-module="nhsuk-button"
+     type="submit"
+     >
+      Request follow up appointment
+    </button>
+  </a>
+  
+    </div>
+  </div>
+
+  {% endblock %}

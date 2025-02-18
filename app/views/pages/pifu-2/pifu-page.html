@@ -1,0 +1,89 @@
+{% extends 'layout-app-pifu-2.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/upcoming-and-past-appointments" %}
+
+{% set pageHeading = "Manage your follow up appointments" %}
+{% set pageDescription = "View and manage your follow up request plans" %}
+
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+       <!-- note: need to add link -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+      
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>Follow-up appointments are only available for certain conditions.
+          <br>
+          <a href="#" title="External website">Learn more about how PIFU works</a>
+        </p>
+      </div>
+
+      <!-- SECTION -->
+      {{ nhsappSectionHeading({
+        headingText: "Active follow-up plan",
+        subheadingText: "2 available"
+      })}}
+
+      <!-- CARDS 1-->
+      <ul class="nhsapp-cards">
+        <li class="nhsapp-card">
+          <div class="nhsapp-card__container">
+            <div class="nhsapp-card__content">
+              {% if data['appointment-letter'] != "read" %}
+              <div class="nhsapp-card__above">
+                <strong class="nhsapp-tag nhsapp-tag--blue nhsuk-u-display-inline-block nhsuk-u-static-margin-bottom-3">Expires soon</strong>
+              </div>
+              {% endif %}
+              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="/pages/pifu-2/pifu-page-pathway-1-1" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
+                Dermatology follow-up plan
+              </a>
+              <div class="nhsapp-card__below">
+                <p aria-hidden="true" class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-3">You can book until 21 July 2024</p>
+                <p class="nhsuk-u-margin-bottom-3">The Willows, Croydon University Hospital</p>
+              </div>
+            </div>
+            {{ nhsappIcon('chevronRight') }}
+          </div>
+        </li>
+      </ul>
+
+      <!-- CARDS 2-->
+      <ul class="nhsapp-cards">
+        <li class="nhsapp-card">
+          <div class="nhsapp-card__container">
+            <div class="nhsapp-card__content">
+              {% if data['appointment-letter'] != "read" %}
+              <div class="nhsapp-card__above">
+              </div>
+              {% endif %}
+              <a class="nhsapp-card__link nhsuk-link--no-visited-state" href="#" aria-label="Orthopaedic appointment on Monday 3 June 2024 at 9:40am">
+                Orthopaedic follow-up plan
+              </a>
+              <div class="nhsapp-card__below">
+                <p aria-hidden="true" class="nhsuk-u-font-weight-bold nhsuk-u-margin-bottom-3">You can book until 21 July 2024</p>
+                <p class="nhsuk-u-margin-bottom-3">The Willows, Croydon University Hospital</p>
+              </div>
+            </div>
+            {{ nhsappIcon('chevronRight') }}
+          </div>
+        </li>
+      </ul>
+      <br>
+      <br>
+
+    </div>
+  </div>
+
+  {% endblock %}
