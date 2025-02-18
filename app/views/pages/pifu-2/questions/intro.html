@@ -1,0 +1,80 @@
+{% extends 'layout-app-pifu-2.html' %}
+
+{% set hub = "Services" %}
+
+{% set backLink = true %}
+{% set backLinkURL = "/pages/pifu-1/your-health/upcoming-and-past-appointments/pifu-questionnaire/questionnaire-intro" %}
+
+{% set pageHeading = "Request dermatology follow up appointment" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true,
+        description: pageDescription
+      })}}
+
+      <!--Care card - urgent-->
+    <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+      <div class="nhsuk-card--care__heading-container">
+        <h2 class="nhsuk-card--care__heading">
+          <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 or go to A&amp;E now if:</span>
+        </h2>
+        <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+      </div>
+    
+      <div class="nhsuk-card__content">
+    
+        <ul>
+          <li>you or someone you know needs immediate help</li>
+          <li>you have seriously harmed yourself – for example, by taking a drug overdose</li>
+        </ul>
+        <p>A mental health emergency should be taken as seriously as a medical emergency.</p>
+        <p><a href="">Find your nearest A&E</a></p>
+    
+      </div>
+    </div>
+
+   <!--Care card - non-urgent -->
+   <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+      <div class="nhsuk-card--care__heading-container">
+        <h2 class="nhsuk-card--care__heading">
+          <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
+        </h2>
+        <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+      </div>
+    
+      <div class="nhsuk-card__content">
+    
+        <ul>
+          <li>your condition isn’t related to the follow up pathway </li>
+        </ul>
+      </div>
+    </div>
+
+      <h3>Booking guidence</h3>
+      <p>Before confirming your appointment request, we need to ask a few questions to ensure this is the right care for you. </p>
+      <p>This questionnaire has 5 questions and will take about 5 minutes.</p>
+
+      <a href="/pages/pifu-2/questions/question-1">
+        <button
+         class="nhsuk-button nhsapp-button--primary nhsapp-button"
+         data-module="nhsuk-button"
+         type="submit"
+         >
+         Start questionnaire
+        </button>
+      </a>
+
+        
+
+    </div>
+  </div>
+
+
+  {% endblock %}

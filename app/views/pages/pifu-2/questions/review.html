@@ -1,0 +1,82 @@
+{% extends 'layout-app-pifu-2.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Check appointment details" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <!-- DYNAMIC PAGE TITLE -->
+      {{ dynamicPageTitle({
+        title: pageHeading,
+        titleSecondary: true
+      })}}
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Do you feel unwell / do you need urgent attention?
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['pifu-2-question-1'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Is your appointment about the thing you were treated for?
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['pifu-2-question-2'] or '?' }}
+          </dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Do you want your follow up appointment?
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['pifu-2-question-3'] or '?' }}
+          </dd>
+        </div>
+
+        <!-- <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Reason for appointment
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['gp-appointment-reason'] or '<em>No reason provided</em>' }}
+          </dd>
+        </div> -->
+        
+      </dl>
+
+
+      <form id="form" method="post" action="/pages/pifu-2/questions/confirmation" novalidate="novalidate">
+
+        <!--{% if data['web'] === "yes" %}
+
+          {{ button({
+            text: "Confirm appointment",
+            classes: "nhsapp-button"
+          }) }}
+
+        {% endif %}-->
+
+        {{ button({
+          text: "Confirm appointment request",
+          classes: "nhsapp-button"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+  {% endblock %}

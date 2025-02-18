@@ -1,0 +1,53 @@
+{% extends 'layout-app-pifu-2.html' %}
+
+{% set hub = "Your health" %}
+
+{% set backLink = true %}
+
+{% set pageHeading = "Do you want your follow up appointment?" %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <form id="form" method="post" action="/pages/pifu-2/questions/review" novalidate="novalidate">
+
+        <h1 class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          {{ pageHeading }}
+        </h1>
+
+        {{ radios({
+          idPrefix: "pifu-2-question-3",
+          name: "pifu-2-question-3",
+          fieldset: {
+            legend: {
+            }
+          },
+          "items": [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("pifu-2-question-3", "appointment-positive")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("pifu-2-question-3", "appointment-negative")
+            }
+          ]
+        }) }}
+
+        <a href="/pages/pifu-2/questions/question-3"> 
+        {{ button({
+          text: "Continue",
+          classes: "nhsapp-button"
+        }) }}
+      </a>
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
